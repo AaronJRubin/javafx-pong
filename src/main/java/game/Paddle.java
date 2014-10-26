@@ -1,4 +1,4 @@
-package game;
+package main.java.game;
 
 import stages.DebugStage;
 import java.text.DecimalFormat;

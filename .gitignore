@@ -6,5 +6,8 @@
 # Mac
 .DS_Store
 
+# Build
 bin/
 build/
+.gradle/
+

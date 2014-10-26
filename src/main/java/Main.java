@@ -1,11 +1,10 @@
-package pong;
+package main.java;
 
+import main.java.game.Game;
 import buttons.HelpButton;
-import game.Game;
 import io.IO;
 import adjustables.AdjustableDouble;
 import adjustables.AdjustableInt;
-
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -28,7 +26,6 @@ public class Main extends Application {
 	Stage primaryStage;
 	VBox root;
 	Game currentGame;
-
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -127,7 +124,7 @@ public class Main extends Application {
 					currentGame = new Game(primaryStage, ballCount, difficulty, acceleration, isLeftComputer, isRightComputer, leftMouse, rightMouse);
 				}
 			});
-			String helpMessage = IO.stringFromStream(getClass().getResourceAsStream("HelpMessage.txt"), 1000);
+			String helpMessage = IO.stringFromStream(Main.class.getResourceAsStream("/HelpMessage.txt"), 1000);
 			HelpButton help = new HelpButton(primaryStage, helpMessage);
 			HBox buttons = new HBox();
 			buttons.setAlignment(Pos.CENTER);
