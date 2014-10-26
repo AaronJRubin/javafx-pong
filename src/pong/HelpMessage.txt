@@ -1,0 +1,6 @@
+Control the left paddle with the "R" and "F" keys ("R" is up, "F" is down),
+and control the right paddle with the up and down keys. The maximum
+computer level is 10, the maximum number of balls is 10, and the maximum
+acceleration is 1. You can optionally control at most one of the paddles by moving
+the mouse. That option is probably best, especially when you have two humans playing,
+since most keyboards don't do so well when multiple keys are pressed at once!
