@@ -16,8 +16,20 @@ import javafx.scene.shape.Rectangle;
 class Paddle extends Rectangle {
 	
 	private DebugStage debugStage;
+	/** 
+	 optimalPoint is the AI's target y-coordinate (i.e., the target coordinate
+	 of the center of the paddle). This is re-computed whenever a ball's
+	 velocity changes or a new ball is added. The paddle, of course,
+	 is not aware of these events. The main Game class calls the Paddle's
+	 computeOptimalPoint method with the currently existing balls whenever a re-computation
+	 is needed.
+	*/ 
 	private double optimalPoint;
-	private int aiDifficulty;
+	/** 
+	adjustment is the amount that the AI moves in a single
+	game loop iteration. The more difficult the AI, the
+	faster it moves, and the higher the adjustment.
+	*/
 	private double adjustment;
 	private static final boolean debug = false;
 
@@ -32,8 +44,7 @@ class Paddle extends Rectangle {
 			debugStage.setTitle(name);
 			debugStage.show();
 		} 
-		aiDifficulty = difficulty;
-		adjustment = Constants.stageHeight / (((10 - aiDifficulty) + 1) * 800);
+		adjustment = Constants.stageHeight / (((10 - difficulty) + 1) * 800);
 		setHeight(Constants.stageHeight * Constants.paddleStageRatio);
 		setWidth(30);
 		Stop[] stops = new Stop[] { new Stop(0, Color.BLACK), new Stop(1, Color.RED)};
