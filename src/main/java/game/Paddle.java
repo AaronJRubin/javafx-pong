@@ -15,6 +15,10 @@ import javafx.scene.shape.Rectangle;
 
 class Paddle extends Rectangle {
 	
+	/** 
+	debugStage is used for displaying the results of various AI algorithm computations
+	when the debug static variable is set to True.
+	*/
 	private DebugStage debugStage;
 	/** 
 	 optimalPoint is the AI's target y-coordinate (i.e., the target coordinate
@@ -31,6 +35,7 @@ class Paddle extends Rectangle {
 	faster it moves, and the higher the adjustment.
 	*/
 	private double adjustment;
+	// See comments for debugStage above.
 	private static final boolean debug = false;
 
 	public Paddle(int difficulty) {
@@ -158,6 +163,11 @@ class Paddle extends Rectangle {
 		}
 	} */
 	
+	/**
+	The getSafeMin and getSafeMax functions compute the lowest and highest
+	possible y-coordinates for the paddle such that the paddle hits
+	the DistanceBall passed to it.
+	*/
 	private double getSafeMin(DistanceBall b) {
 		return b.getAdjustedHeight() - getHeight() / 2;
 	}
