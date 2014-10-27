@@ -176,6 +176,8 @@ class Paddle extends Rectangle {
 		return b.getAdjustedHeight() + getHeight() / 2;
 	}
 
+	// I hate mixing debugging statements with the actual algorithm
+	// like I do in the below code, but I'm leaving them in for now.
 	public void computeOptimalPoint(List<Ball> balls) {
 		DecimalFormat df = new DecimalFormat("#.###");
 		StringBuilder log = new StringBuilder();
@@ -191,9 +193,13 @@ class Paddle extends Rectangle {
 			}
 			log.append("Calculated Optimal Point:\n");
 		}
+
+		//Compute safe range for the closest ball 
 		DistanceBall first = toSort.get(0);
-		double min = first.getAdjustedHeight() - getHeight() / 2;
-		double max = first.getAdjustedHeight() + getHeight() / 2;
+		double min = getSafeMin(first);
+		double max = getSafeMax(first);
+
+		//Examine other balls to get as close as possible without missing first ball
 		int i = 1;
 		while (i < toSort.size()) {
 			DistanceBall cur = toSort.get(i);
@@ -228,6 +234,8 @@ class Paddle extends Rectangle {
 			}
 			i++;
 		}
+		// Here, we shoot for the midpoint for purely aesthetic reasons.
+		// optimalPoint = min or optimalPoint = max would both be fine.
 		optimalPoint = (min + max) / 2;
 		if (debug) {
 			log.append(df.format(optimalPoint));
