@@ -8,12 +8,12 @@ classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
 }
 }
 
-apply from: 'javafx.plugin'
+//apply from: 'javafx.plugin'
 apply plugin: 'java'
 apply plugin: 'spring-boot'
 
 dependencies {
-    compile files('lib/MyUtils.jar')
+    compile files('lib/aarons-utils.jar')
 }
 
 jar {
@@ -21,7 +21,7 @@ baseName = 'pong'
 version = '0.1.0'
 }
 
-
+/*
 javafx {
 mainClass 'main.java.Main'
-}
+}*/

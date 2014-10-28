@@ -1,6 +1,4 @@
-package main.java;
-
-import main.java.game.Game;
+import game.Game;
 import buttons.HelpButton;
 import io.IO;
 import adjustables.AdjustableDouble;

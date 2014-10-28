@@ -1,4 +1,4 @@
-package main.java.game;
+package game;
 
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
